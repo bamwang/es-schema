@@ -1,6 +1,6 @@
 {
   "name": "es-schema",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A simple schema formater to bind object to defined schema",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "bind"
   ],
   "engines": {
-    "node": "4.0.0~"
+    "node": ">=4.0.0"
   },
   "author": "Bam Wang",
   "license": "ISC",
