@@ -17,7 +17,7 @@ const mySchema = {
     use_a_value_as_default: "es"
 };
 ```
-### Write a object
+### Write an object
 ```js
 const myData = {
     use_constructor_function: "yes",
