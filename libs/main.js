@@ -42,7 +42,7 @@ class Binder {
     return Symbol.for('strict');
   }
 
-  static get BindeError() {
+  static get BindError() {
     return BindError;
   }
 
