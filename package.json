@@ -1,0 +1,32 @@
+{
+  "name": "simple-schema",
+  "version": "0.1.0",
+  "description": "A simple schema formater to bind object to defined schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*"
+  },
+  "keywords": [
+    "schema",
+    "validator",
+    "binder",
+    "bind"
+  ],
+  "author": "Bam King",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.10.0",
+    "mocha": "^2.4.5"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "dependencies": {
+  }
+}
