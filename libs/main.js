@@ -9,7 +9,7 @@ const primitiveType = {
 
 class BindError extends TypeError {
   constructor(expected, key, actual, mode) {
-    super(`BindeError: expected ${expected} @ ${key} but get ${actual} in ${mode.toString()}`);
+    super(`BindeError: expected ${expected} @ ${key} but get ${actual} in ${mode.toString()} mode.`);
     this.detail = {expected, key, actual, mode};
   }
 }
@@ -40,6 +40,14 @@ class Binder {
 
   static get strict() {
     return Symbol.for('strict');
+  }
+
+  static get BindeError() {
+    return BindError;
+  }
+
+  static get ParamError() {
+    return ParamError;
   }
 
   analizeModel(model) {
@@ -167,9 +175,16 @@ class Binder {
           binded[k] = v;
         }
       }
+      if (this.keepSelfDefined) {
+        for (const k in input) {
+          if (!(k in model)) {
+            binded[k] = input[k];
+          }
+        }
+      }
       return binded;
     }
   }
 }
 
-module.exports = {Binder, BindError};
+module.exports = Binder;

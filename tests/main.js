@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
-var schemaHelper = require('../libs/main');
+var Binder = require('../libs/main');
 describe('strict binder', () => {
-  const binder = new schemaHelper.Binder(schemaHelper.Binder.strict, false);
+  const binder = new Binder(Binder.strict, false);
   const zero = 0;
   const blank = '';
   const fal = false;
@@ -22,33 +22,33 @@ describe('strict binder', () => {
     const modelSample = 'test';
     const modelConstructor = String;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should return it blank itself', () => {
       assert.equal(binder.bind(blank, modelSample), blank);
       assert.equal(binder.bind(blank, modelConstructor), blank);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should return it string itself', () => {
       assert.equal(binder.bind(str, modelSample), str);
@@ -56,24 +56,24 @@ describe('strict binder', () => {
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -85,20 +85,20 @@ describe('strict binder', () => {
       assert.equal(binder.bind(zero, modelConstructor), zero);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should return number itself', () => {
@@ -106,33 +106,33 @@ describe('strict binder', () => {
       assert.equal(binder.bind(num, modelConstructor), num);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -140,20 +140,20 @@ describe('strict binder', () => {
     const modelSample = true;
     const modelConstructor = Boolean;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should return false itself', () => {
       assert.equal(binder.bind(fal, modelSample), fal);
@@ -161,37 +161,37 @@ describe('strict binder', () => {
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should return boolean itself', () => {
       assert.equal(binder.bind(bool, modelSample), bool);
       assert.equal(binder.bind(bool, modelConstructor), bool);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -199,42 +199,42 @@ describe('strict binder', () => {
     const modelSample = [];
     const modelConstructor = Array;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should return array itself', () => {
       assert.deepEqual(binder.bind(arr, modelSample), arr);
@@ -245,16 +245,16 @@ describe('strict binder', () => {
       assert.deepEqual(binder.bind(arrMixed, modelConstructor), arrMixed);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -262,66 +262,66 @@ describe('strict binder', () => {
     const modelSample = [String];
     const modelConstructor = ['www'];
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with wrong type', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with mixed type', () => {
-      assert.throws(() => binder.bind(arrMixed, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arrMixed, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelConstructor), Binder.BindError);
     });
     it('should return array with correct type', () => {
       assert.deepEqual(binder.bind(arrStr, modelSample), arrStr);
       assert.deepEqual(binder.bind(arrStr, modelConstructor), arrStr);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -329,37 +329,37 @@ describe('strict binder', () => {
     const modelSample = {};
     const modelConstructor = Object;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should return empty object itself', () => {
       assert.deepEqual(binder.bind(eobj, modelSample), eobj);
       assert.deepEqual(binder.bind(eobj, modelConstructor), eobj);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should return object itself', () => {
@@ -367,20 +367,20 @@ describe('strict binder', () => {
       assert.deepEqual(binder.bind(obj, modelConstructor), obj);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul); // todo
       assert.deepEqual(binder.bind(nul, modelConstructor), nul);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -392,42 +392,42 @@ describe('strict binder', () => {
       a: Number
     };
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object with wrong type', () => {
-      assert.throws(() => binder.bind(objStr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(objStr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(objStr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(objStr, modelConstructor), Binder.BindError);
     });
     it('should return object without undefined property in model', () => {
       const b1 = binder.bind(obj, modelSample);
@@ -436,26 +436,26 @@ describe('strict binder', () => {
       assert.equal(b2.a, obj.a);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul);
       assert.deepEqual(binder.bind(nul, modelConstructor), nul);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 });
 
 describe('fillWithDefault binder', () => {
-  const binder = new schemaHelper.Binder(schemaHelper.Binder.fillWithDefault, false);
+  const binder = new Binder(Binder.fillWithDefault, false);
   const zero = 0;
   const blank = '';
   const fal = false;
@@ -476,33 +476,33 @@ describe('fillWithDefault binder', () => {
     const modelSample = 'test';
     const modelConstructor = String;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should return it blank itself', () => {
       assert.equal(binder.bind(blank, modelSample), blank);
       assert.equal(binder.bind(blank, modelConstructor), blank);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should return it string itself', () => {
       assert.equal(binder.bind(str, modelSample), str);
@@ -510,24 +510,24 @@ describe('fillWithDefault binder', () => {
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return sample/blank', () => {
       assert.equal(binder.bind(und, modelSample), modelSample);
       assert.equal(binder.bind(und, modelConstructor), blank);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -539,20 +539,20 @@ describe('fillWithDefault binder', () => {
       assert.equal(binder.bind(zero, modelConstructor), zero);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should return number itself', () => {
@@ -560,33 +560,33 @@ describe('fillWithDefault binder', () => {
       assert.equal(binder.bind(num, modelConstructor), num);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return sample/zero', () => {
       assert.equal(binder.bind(und, modelSample), modelSample);
       assert.equal(binder.bind(und, modelConstructor), zero);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -594,20 +594,20 @@ describe('fillWithDefault binder', () => {
     const modelSample = true;
     const modelConstructor = Boolean;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should return false itself', () => {
       assert.equal(binder.bind(fal, modelSample), fal);
@@ -615,37 +615,37 @@ describe('fillWithDefault binder', () => {
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should return boolean itself', () => {
       assert.equal(binder.bind(bool, modelSample), bool);
       assert.equal(binder.bind(bool, modelConstructor), bool);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return sample/false when input is undefined', () => {
       assert.equal(binder.bind(und, modelSample), modelSample);
       assert.equal(binder.bind(und, modelConstructor), fal);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -653,42 +653,42 @@ describe('fillWithDefault binder', () => {
     const modelSample = [];
     const modelConstructor = Array;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should return array itself', () => {
       assert.deepEqual(binder.bind(arr, modelSample), arr);
@@ -699,16 +699,16 @@ describe('fillWithDefault binder', () => {
       assert.deepEqual(binder.bind(arrMixed, modelConstructor), arrMixed);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return empty array when input is undefined', () => {
       assert.deepEqual(binder.bind(und, modelSample), earr);
       assert.deepEqual(binder.bind(und, modelConstructor), earr);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -716,66 +716,66 @@ describe('fillWithDefault binder', () => {
     const modelSample = [String];
     const modelConstructor = ['www'];
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with wrong type', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with mixed type', () => {
-      assert.throws(() => binder.bind(arrMixed, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arrMixed, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelConstructor), Binder.BindError);
     });
     it('should return array with correct type', () => {
       assert.deepEqual(binder.bind(arrStr, modelSample), arrStr);
       assert.deepEqual(binder.bind(arrStr, modelConstructor), arrStr);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return empty array', () => {
       assert.deepEqual(binder.bind(und, modelSample), earr);
       assert.deepEqual(binder.bind(und, modelConstructor), earr);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -783,37 +783,37 @@ describe('fillWithDefault binder', () => {
     const modelSample = {};
     const modelConstructor = Object;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should return empty object itself', () => {
       assert.deepEqual(binder.bind(eobj, modelSample), eobj);
       assert.deepEqual(binder.bind(eobj, modelConstructor), eobj);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should return object itself', () => {
@@ -821,8 +821,8 @@ describe('fillWithDefault binder', () => {
       assert.deepEqual(binder.bind(obj, modelConstructor), obj);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul);
@@ -833,8 +833,8 @@ describe('fillWithDefault binder', () => {
       assert.deepEqual(binder.bind(und, modelConstructor), nul);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -846,42 +846,42 @@ describe('fillWithDefault binder', () => {
       a: Number
     };
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should return sample object/default when input is empty object', () => { // todo check mixed
       assert.deepEqual(binder.bind(eobj, modelSample), modelSample);
       assert.deepEqual(binder.bind(eobj, modelConstructor), {a: 0});
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object with wrong type', () => {
-      assert.throws(() => binder.bind(objStr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(objStr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(objStr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(objStr, modelConstructor), Binder.BindError);
     });
     it('should return object without undefined property in model', () => {
       const b1 = binder.bind(obj, modelSample);
@@ -890,8 +890,8 @@ describe('fillWithDefault binder', () => {
       assert.equal(b2.a, obj.a);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself when input is null', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul);
@@ -902,14 +902,14 @@ describe('fillWithDefault binder', () => {
       assert.deepEqual(binder.bind(und, modelConstructor), nul);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 });
 
 describe('ignore binder', () => {
-  const binder = new schemaHelper.Binder(schemaHelper.Binder.ignoreUndefined, false);
+  const binder = new Binder(Binder.ignoreUndefined, false);
   const zero = 0;
   const blank = '';
   const fal = false;
@@ -930,33 +930,33 @@ describe('ignore binder', () => {
     const modelSample = 'test';
     const modelConstructor = String;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should return it blank itself', () => {
       assert.equal(binder.bind(blank, modelSample), blank);
       assert.equal(binder.bind(blank, modelConstructor), blank);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should return it string itself', () => {
       assert.equal(binder.bind(str, modelSample), str);
@@ -964,24 +964,24 @@ describe('ignore binder', () => {
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return undefined itself', () => {
       assert.equal(binder.bind(und, modelSample), undefined);
       assert.equal(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -993,20 +993,20 @@ describe('ignore binder', () => {
       assert.equal(binder.bind(zero, modelConstructor), zero);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should return number itself', () => {
@@ -1014,33 +1014,33 @@ describe('ignore binder', () => {
       assert.equal(binder.bind(num, modelConstructor), num);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return undefined itself', () => {
       assert.equal(binder.bind(und, modelSample), undefined);
       assert.equal(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1048,20 +1048,20 @@ describe('ignore binder', () => {
     const modelSample = true;
     const modelConstructor = Boolean;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should return false itself', () => {
       assert.equal(binder.bind(fal, modelSample), fal);
@@ -1069,37 +1069,37 @@ describe('ignore binder', () => {
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should return boolean itself', () => {
       assert.equal(binder.bind(bool, modelSample), bool);
       assert.equal(binder.bind(bool, modelConstructor), bool);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return undefined itself', () => {
       assert.equal(binder.bind(und, modelSample), undefined);
       assert.equal(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1107,42 +1107,42 @@ describe('ignore binder', () => {
     const modelSample = [];
     const modelConstructor = Array;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array itself', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should return array itself', () => {
       assert.deepEqual(binder.bind(arr, modelSample), arr);
@@ -1153,16 +1153,16 @@ describe('ignore binder', () => {
       assert.deepEqual(binder.bind(arrMixed, modelConstructor), arrMixed);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return undefined itself', () => {
       assert.deepEqual(binder.bind(und, modelSample), undefined);
       assert.deepEqual(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1170,66 +1170,66 @@ describe('ignore binder', () => {
     const modelSample = [String];
     const modelConstructor = ['www'];
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array itself', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with wrong type', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with mixed type', () => {
-      assert.throws(() => binder.bind(arrMixed, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arrMixed, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelConstructor), Binder.BindError);
     });
     it('should return array itself when type is correct', () => {
       assert.deepEqual(binder.bind(arrStr, modelSample), arrStr);
       assert.deepEqual(binder.bind(arrStr, modelConstructor), arrStr);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should return undefined itself', () => {
       assert.deepEqual(binder.bind(und, modelSample), undefined);
       assert.deepEqual(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1237,37 +1237,37 @@ describe('ignore binder', () => {
     const modelSample = {};
     const modelConstructor = Object;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should return empty object itself', () => {
       assert.deepEqual(binder.bind(eobj, modelSample), eobj);
       assert.deepEqual(binder.bind(eobj, modelConstructor), eobj);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should return object itself', () => {
@@ -1275,8 +1275,8 @@ describe('ignore binder', () => {
       assert.deepEqual(binder.bind(obj, modelConstructor), obj);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul);
@@ -1287,8 +1287,8 @@ describe('ignore binder', () => {
       assert.deepEqual(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1300,42 +1300,42 @@ describe('ignore binder', () => {
       a: Number
     };
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should return empty object itself', () => {
       assert.deepEqual(binder.bind(eobj, modelSample), eobj);
       assert.deepEqual(binder.bind(eobj, modelConstructor), eobj);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object with wrong type', () => {
-      assert.throws(() => binder.bind(objStr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(objStr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(objStr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(objStr, modelConstructor), Binder.BindError);
     });
     it('should return object without undefined property in model', () => {
       const b1 = binder.bind(obj, modelSample);
@@ -1344,8 +1344,8 @@ describe('ignore binder', () => {
       assert.equal(b2.a, obj.a);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul);
@@ -1356,14 +1356,14 @@ describe('ignore binder', () => {
       assert.deepEqual(binder.bind(und, modelConstructor), undefined);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 });
 
 describe('strict binder with own property', () => {
-  const binder = new schemaHelper.Binder(schemaHelper.Binder.strict, true);
+  const binder = new Binder(Binder.strict, true);
   const zero = 0;
   const blank = '';
   const fal = false;
@@ -1384,33 +1384,33 @@ describe('strict binder with own property', () => {
     const modelSample = 'test';
     const modelConstructor = String;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should return it blank itself', () => {
       assert.equal(binder.bind(blank, modelSample), blank);
       assert.equal(binder.bind(blank, modelConstructor), blank);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should return it string itself', () => {
       assert.equal(binder.bind(str, modelSample), str);
@@ -1418,24 +1418,24 @@ describe('strict binder with own property', () => {
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1447,20 +1447,20 @@ describe('strict binder with own property', () => {
       assert.equal(binder.bind(zero, modelConstructor), zero);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should return number itself', () => {
@@ -1468,33 +1468,33 @@ describe('strict binder with own property', () => {
       assert.equal(binder.bind(num, modelConstructor), num);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1502,20 +1502,20 @@ describe('strict binder with own property', () => {
     const modelSample = true;
     const modelConstructor = Boolean;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should return false itself', () => {
       assert.equal(binder.bind(fal, modelSample), fal);
@@ -1523,37 +1523,37 @@ describe('strict binder with own property', () => {
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should return boolean itself', () => {
       assert.equal(binder.bind(bool, modelSample), bool);
       assert.equal(binder.bind(bool, modelConstructor), bool);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1561,42 +1561,42 @@ describe('strict binder with own property', () => {
     const modelSample = [];
     const modelConstructor = Array;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should return array itself', () => {
       assert.deepEqual(binder.bind(arr, modelSample), arr);
@@ -1607,16 +1607,16 @@ describe('strict binder with own property', () => {
       assert.deepEqual(binder.bind(arrMixed, modelConstructor), arrMixed);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1624,66 +1624,66 @@ describe('strict binder with own property', () => {
     const modelSample = [String];
     const modelConstructor = ['www'];
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should return empty array itself', () => {
       assert.deepEqual(binder.bind(earr, modelSample), earr);
       assert.deepEqual(binder.bind(earr, modelConstructor), earr);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object', () => {
-      assert.throws(() => binder.bind(obj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(obj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(obj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(obj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with wrong type', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is array with mixed type', () => {
-      assert.throws(() => binder.bind(arrMixed, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arrMixed, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arrMixed, modelConstructor), Binder.BindError);
     });
     it('should return array itself if type is correct', () => {
       assert.deepEqual(binder.bind(arrStr, modelSample), arrStr);
       assert.deepEqual(binder.bind(arrStr, modelConstructor), arrStr);
     });
     it('should throw error when input is null', () => {
-      assert.throws(() => binder.bind(nul, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(nul, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(nul, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(nul, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1691,37 +1691,37 @@ describe('strict binder with own property', () => {
     const modelSample = {};
     const modelConstructor = Object;
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should return empty object itself', () => {
       assert.deepEqual(binder.bind(eobj, modelSample), eobj);
       assert.deepEqual(binder.bind(eobj, modelConstructor), eobj);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should return object itself', () => {
@@ -1729,20 +1729,20 @@ describe('strict binder with own property', () => {
       assert.deepEqual(binder.bind(obj, modelConstructor), obj);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul); // todo
       assert.deepEqual(binder.bind(nul, modelConstructor), nul);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 
@@ -1754,42 +1754,42 @@ describe('strict binder with own property', () => {
       a: Number
     };
     it('should throw error when input is zero', () => {
-      assert.throws(() => binder.bind(zero, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(zero, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(zero, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(zero, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is blank', () => {
-      assert.throws(() => binder.bind(blank, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(blank, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(blank, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(blank, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty object', () => {
-      assert.throws(() => binder.bind(eobj, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(eobj, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(eobj, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(eobj, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is empty array', () => {
-      assert.throws(() => binder.bind(earr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(earr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(earr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(earr, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is false', () => {
-      assert.throws(() => binder.bind(fal, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(fal, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(fal, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(fal, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is number', () => {
-      assert.throws(() => binder.bind(num, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(num, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(num, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(num, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is boolean', () => {
-      assert.throws(() => binder.bind(bool, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(bool, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(bool, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(bool, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is string', () => {
-      assert.throws(() => binder.bind(str, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(str, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(str, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(str, modelConstructor), Binder.BindError);
     });
 
     it('should throw error when input is object with wrong type', () => {
-      assert.throws(() => binder.bind(objStr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(objStr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(objStr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(objStr, modelConstructor), Binder.BindError);
     });
     it('should return object with own property in input object', () => {
       const b1 = binder.bind(obj, modelSample);
@@ -1800,26 +1800,26 @@ describe('strict binder with own property', () => {
       assert.equal(b2.b, obj.b);
     });
     it('should throw error when input is array', () => {
-      assert.throws(() => binder.bind(arr, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(arr, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(arr, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(arr, modelConstructor), Binder.BindError);
     });
     it('should retrun null itself', () => {
       assert.deepEqual(binder.bind(nul, modelSample), nul);
       assert.deepEqual(binder.bind(nul, modelConstructor), nul);
     });
     it('should throw error when input is undefined', () => {
-      assert.throws(() => binder.bind(und, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(und, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(und, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(und, modelConstructor), Binder.BindError);
     });
     it('should throw error when input is function', () => {
-      assert.throws(() => binder.bind(func, modelSample), schemaHelper.BindError);
-      assert.throws(() => binder.bind(func, modelConstructor), schemaHelper.BindError);
+      assert.throws(() => binder.bind(func, modelSample), Binder.BindError);
+      assert.throws(() => binder.bind(func, modelConstructor), Binder.BindError);
     });
   });
 });
 
 describe('mixed up test', () => {
-  const binder = new schemaHelper.Binder(schemaHelper.Binder.fillWithDefault, true);
+  const binder = new Binder(Binder.fillWithDefault, true);
   const input = {
     str1: String,
     str2: "test",
