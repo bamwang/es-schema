@@ -31,5 +31,13 @@
     }
   },
   "dependencies": {
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bamwang/es-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bamwang/es-schema/issues"
+  },
+  "homepage": "https://github.com/bamwang/es-schema#readme"
 }
